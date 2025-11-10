@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Portfolio</title>
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide icons for icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --primary-color: #4f46e5; /* Indigo 600 */
+            --primary-dark: #4338ca; /* Indigo 700 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f8fafc; /* Slate 50 */
+            color: #1f2937; /* Gray 800 */
+        }
+        
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Class for active section tracking (added via JS) */
+        .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-gray-900 transition-colors hover:text-indigo-600">
+                &lt;Dev /&gt;
+            </a>
+            
+  
+            <!-- Desktop Nav Links (Updated) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors">About</a>
+                <a href="#experience" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors">Experience</a>
+                <a href="#skills" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors">Skills</a>
+                <a href="#projects" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors">Projects</a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu (Updated) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t border-gray-100">
+            <div class="flex flex-col p-4 space-y-2">
+                <a href="#about" class="mobile-nav-link p-2 rounded-lg text-gray-800 hover:bg-indigo-50 transition-colors">About</a>
+                <a href="#experience" class="mobile-nav-link p-2 rounded-lg text-gray-800 hover:bg-indigo-50 transition-colors">Experience</a>
+                <a href="#skills" class="mobile-nav-link p-2 rounded-lg text-gray-800 hover:bg-indigo-50 transition-colors">Skills</a>
+                <a href="#projects" class="mobile-nav-link p-2 rounded-lg text-gray-800 hover:bg-indigo-50 transition-colors">Projects</a>
+                <a href="#contact" class="mobile-nav-link p-2 rounded-lg text-gray-800 hover:bg-indigo-50 transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen">
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+                <!-- Profile Image Placeholder -->
+                <div class="mx-auto mb-6 w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden border-4 border-indigo-200 shadow-xl">
+                    <img src="https://placehold.co/128x128/f0f9ff/4f46e5?text=MK" onerror="this.src='https://placehold.co/128x128/f0f9ff/4f46e5?text=MK'" alt="Profile Avatar" class="w-full h-full object-cover">
+                </div>
+                
+                <p class="text-base text-indigo-600 font-semibold uppercase tracking-wider mb-2">Hello, I'm Manish Kumar</p>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+                    Building <span class="text-indigo-600">Dynamic</span> Experiences
+                </h1>
+                <p class="text-lg text-gray-500 mb-8 max-w-3xl mx-auto">
+                    A Full-Stack Developer passionate about crafting elegant and efficient solutions using modern web technologies. Based in Silicon Valley.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#projects" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl shadow-lg text-white bg-indigo-600 hover:bg-indigo-700 transition-transform duration-200 ease-in-out transform hover:scale-[1.02]">
+                        View Projects <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border border-indigo-600 text-base font-medium rounded-xl text-indigo-600 bg-white hover:bg-indigo-50 transition-colors">
+                        Hire Me
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">About Me</h2>
+                <div class="max-w-3xl mx-auto space-y-6 text-lg text-gray-600">
+                    <p>
+                        I am a dedicated software engineer with 5 years of professional experience specializing in the MERN stack (MongoDB, Express, React, Node.js). My focus is on delivering high-quality, scalable, and user-friendly applications from concept to deployment. I thrive in collaborative environments and am committed to continuous learning and adopting new technologies.
+                    </p>
+                    <p>
+                        Beyond coding, I enjoy simplifying complex problems and finding elegant architectural solutions. Whether it's optimizing database queries or designing intuitive user interfaces, my goal remains the same: to create impactful digital products that provide tangible value to users.
+                    </p>
+                    <div class="flex justify-center pt-4">
+                         <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center transition-colors">
+                            Download Resume 
+                            <i data-lucide="download" class="ml-2 w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Experience Section (Updated with 2024 SIH Internal Round) -->
+        <section id="experience" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">Achievements & Experience</h2>
+                
+                <div class="space-y-8 max-w-4xl mx-auto">
+                    
+                    <!-- Experience Item 1: SIH Internal Round Selection 2025 -->
+                    <div class="p-6 md:p-8 bg-gray-50 rounded-xl shadow-xl border-t-4 border-indigo-600 hover:shadow-2xl transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <i data-lucide="award" class="w-8 h-8 text-indigo-600 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-1">Smart India Hackathon (SIH) 2025</h3>
+                                <p class="text-indigo-600 font-medium mb-3">*Internal Round Selection (Top 24 Teams)* | HMR ITM</p>
+                                <p class="text-gray-600">
+                                    Secured a position in the *top 24 teams* in the Internal Round of the Smart India Hackathon 2025, representing the team "Code It Down." Focused on problem-solving, rapid development, and innovative technology implementation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience Item 2: SIH Internal Round Selection 2024 (NEW) -->
+                    <div class="p-6 md:p-8 bg-gray-50 rounded-xl shadow-xl border-t-4 border-indigo-600 hover:shadow-2xl transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <i data-lucide="award" class="w-8 h-8 text-indigo-600 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-1">Smart India Hackathon (SIH) 2024</h3>
+                                <p class="text-indigo-600 font-medium mb-3">*Internal Round Select* | HMR ITM</p>
+                                <p class="text-gray-600">
+                                    Selected for the Internal Round of the Smart India Hackathon 2024, demonstrating ability to conceptualize and develop solutions under strict timelines. This early achievement paved the way for future hackathon success.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Experience Item 3: TechExpo Runner-up -->
+                    <div class="p-6 md:p-8 bg-gray-50 rounded-xl shadow-xl border-t-4 border-indigo-600 hover:shadow-2xl transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <i data-lucide="trophy" class="w-8 h-8 text-indigo-600 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-1">TechExpo 2024 Runner-up</h3>
+                                <p class="text-indigo-600 font-medium mb-3">HMR Institute of Technology and Management</p>
+                                <p class="text-gray-600">
+                                    Achieved the *Runner-up* position in the annual Technical Exhibition for an innovative project in AI/ML assisted tools. This included end-to-end responsibility for conceptual design, rapid prototyping, and a compelling live demonstration.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Skills Section (Updated background for contrast) -->
+        <section id="skills" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">Core Expertise</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Skill Card: Frontend -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                        <i data-lucide="laptop-2" class="w-8 h-8 text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Frontend Development</h3>
+                        <p class="text-gray-500 text-sm mb-4">React, Next.js, Vue.js, Redux, Tailwind CSS, TypeScript.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800">React</span>
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800">Tailwind</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card: Backend -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                        <i data-lucide="server" class="w-8 h-8 text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Backend & API</h3>
+                        <p class="text-gray-500 text-sm mb-4">Node.js, Express, Python (Django/Flask), REST, GraphQL.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-green-100 text-green-800">Node.js</span>
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-yellow-100 text-yellow-800">Python</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill Card: Database -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                        <i data-lucide="database" class="w-8 h-8 text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Databases</h3>
+                        <p class="text-gray-500 text-sm mb-4">MongoDB, PostgreSQL, MySQL, Firestore, Redis.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-red-100 text-red-800">MongoDB</span>
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-teal-100 text-teal-800">PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card: DevOps/Tools -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                        <i data-lucide="git-branch" class="w-8 h-8 text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">DevOps & Tools</h3>
+                        <p class="text-gray-500 text-sm mb-4">Git, Docker, AWS, CI/CD, Jest, Cypress.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800">Docker</span>
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800">AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Projects Section (Updated with DTC Bus Tracker) -->
+        <section id="projects" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">Featured Projects</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Project 1 (ZoneShare App) -->
+                    <div class="bg-white rounded-xl shadow-2xl overflow-hidden group hover:shadow-indigo-300 transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/10b981/ffffff?text=ZoneShare+App" 
+                             alt="ZoneShare Event Discovery App" 
+                             class="w-full h-48 object-cover group-hover:scale-[1.05] transition-transform duration-500">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">ZoneShare App</h3>
+                            <p class="text-gray-600 mb-4 text-sm">A comprehensive event discovery and management platform allowing users to find, manage, and share local events and communities.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-green-100 text-green-800">Full-Stack</span>
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-pink-100 text-pink-800">Event Management</span>
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-yellow-100 text-yellow-800">Location-Based</span>
+                            </div>
+                            <a href="#" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center transition-colors">
+                                View Demo <i data-lucide="external-link" class="ml-2 w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 (E-Commerce API Service) -->
+                    <div class="bg-white rounded-xl shadow-2xl overflow-hidden group hover:shadow-indigo-300 transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/1e3a8a/ffffff?text=E-Commerce+API" 
+                             alt="E-Commerce API Project" 
+                             class="w-full h-48 object-cover group-hover:scale-[1.05] transition-transform duration-500">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">E-Commerce API Service</h3>
+                            <p class="text-gray-600 mb-4 text-sm">A highly scalable RESTful API supporting millions of users, built for a modern e-commerce platform.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-green-100 text-green-800">Node.js</span>
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-red-100 text-red-800">MongoDB</span>
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-blue-100 text-blue-800">Express</span>
+                            </div>
+                            <a href="#" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center transition-colors">
+                                View Code <i data-lucide="github" class="ml-2 w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 (Real-time Task Manager) -->
+                    <div class="bg-white rounded-xl shadow-2xl overflow-hidden group hover:shadow-indigo-300 transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/9d174d/ffffff?text=Task+Manager+App" 
+                             alt="Task Manager App" 
+                             class="w-full h-48 object-cover group-hover:scale-[1.05] transition-transform duration-500">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Real-time Task Manager</h3>
+                            <p class="text-gray-600 mb-4 text-sm">A collaborative Kanban-style task board application with real-time updates using WebSockets.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-sky-100 text-sky-800">React</span>
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-yellow-100 text-yellow-800">GraphQL</span>
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-purple-100 text-purple-800">Tailwind CSS</span>
+                            </div>
+                            <a href="#" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center transition-colors">
+                                View Demo <i data-lucide="external-link" class="ml-2 w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 (DTC Bus Tracking Website) (NEW) -->
+                    <div class="bg-white rounded-xl shadow-2xl overflow-hidden group hover:shadow-indigo-300 transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/ef4444/ffffff?text=DTC+Bus+Tracker" 
+                             alt="DTC Bus Tracking Website" 
+                             class="w-full h-48 object-cover group-hover:scale-[1.05] transition-transform duration-500">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">DTC Bus Tracking Website</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Real-time web application to track the live location and estimated time of arrival (ETA) of Delhi Transport Corporation (DTC) buses.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-red-100 text-red-800">Geolocation</span>
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-indigo-100 text-indigo-800">Mapping API</span>
+                                <span class="text-xs font-medium px-3 py-1 rounded-full bg-yellow-100 text-yellow-800">Public Utility</span>
+                            </div>
+                            <a href="#" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center transition-colors">
+                                View Demo <i data-lucide="external-link" class="ml-2 w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- 6. Contact Section (Updated background for contrast) -->
+        <section id="contact" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">Get In Touch</h2>
+                <p class="text-center text-lg text-gray-600 mb-12">
+                    Have a project in mind or just want to say hi? Send me a message!
+                </p>
+
+                <form id="contact-form" class="max-w-xl mx-auto p-8 bg-white rounded-2xl shadow-2xl border border-gray-100">
+                    <div class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition-colors"></textarea>
+                        </div>
+                        
+                        <div id="form-message" class="hidden p-3 rounded-lg text-sm font-medium"></div>
+
+                        <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" target="_blank" class="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="GitHub">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Twitter">
+                    <i data-lucide="twitter" class="w-6 h-6"></i>
+                </a>
+            </div>
+            <p class="text-sm text-gray-400">
+                &copy; <span id="current-year"></span> *Manish Kumar*. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu, Contact Form Feedback, and Icon Rendering -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Feather Icon Rendering
+            // This function replaces the data-lucide attributes with SVG icons
+            lucide.createIcons();
+
+            // 2. Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                // Change icon for better UX
+                const iconElement = mobileMenuButton.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    iconElement.setAttribute('data-lucide', 'menu');
+                } else {
+                    iconElement.setAttribute('data-lucide', 'x');
+                }
+                lucide.createIcons();
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.querySelector('i').setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            });
+
+
+            // 3. Dynamic Footer Year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // 4. Simple Contact Form Simulation (No server-side logic)
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Simple validation and display message
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                if (name && email && message) {
+                    formMessage.classList.remove('hidden', 'bg-red-100', 'text-red-800');
+                    formMessage.classList.add('bg-green-100', 'text-green-800');
+                    formMessage.textContent = Thank you, ${name}! Your message has been received (simulated). I'll be in touch soon.;
+                    contactForm.reset();
+                } else {
+                    formMessage.classList.remove('hidden', 'bg-green-100', 'text-green-800');
+                    formMessage.classList.add('bg-red-100', 'text-red-800');
+                    formMessage.textContent = 'Please fill out all fields.';
+                }
+            });
+
+            // 5. Active Navigation Link Tracker (Optional)
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const options = {
+                root: null,
+                threshold: 0.3, // Percentage of section visible before it's considered active
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
